@@ -19,10 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(res => res.json())
     .then(res => {
         if(myauth !== res.data.email) {
-            console.log('auth problem do logout');
             logout()
             for(let el of authDoms) {
-                el.classList.remove('authorized');
+                el.classList.remove('authorized');                
             }
             return;
         }
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
     .catch(err => {
-        console.log(err);
         logout()
         for(let el of authDoms) {
             el.classList.remove('authorized');
@@ -68,7 +66,6 @@ function moveToSignup() {
 //login
 function loginSubmit(event) {
     event.preventDefault();
-    console.log(event)
     const email = event.target[0].value;
     const password = event.target[1].value;
 
@@ -83,25 +80,25 @@ function loginSubmit(event) {
     })
     .then(res => res.json())
     .then(res => {
+        if(res.message !== 'ok') return alert(res.message);
         localStorage.setItem('accessToken', res.data.accessToken);
         localStorage.setItem('myauth', res.data.userInfo.email);
         location.href = 'index.html';
     }) 
     .catch(err =>{
-        alert(err);
+        alert(err.message);
     })
 }
 
+//signup
 function signupSubmit(event) {
     event.preventDefault();
-    console.dir(event.target);
     const email = event.target[0].value;
     const password = event.target[1].value;
     const passwordCheck = event.target[2].value;
     const username = event.target[3].value;
-    const mobile = Number(event.target[4].value);
+    const mobile = event.target[4].value;
     const gender = Number(event.target[5].value);
-    console.log(gender);
     
     if(password !== passwordCheck) return alert('패스워드 확인란이 다릅니다.');
 
@@ -116,7 +113,8 @@ function signupSubmit(event) {
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res.message);
+        alert(res.message);
+        if(res.message==='signup complete') location.href='login.html';
     })
-    .catch(err => console.log(err));
+    .catch(err => alert(err.message));
 }

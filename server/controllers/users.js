@@ -57,15 +57,13 @@ module.exports = {
     },
     
     postSignup: async (req, res) => {
-        try {
-            console.log(req.body);
-            
+        try {            
             const { email, password, username, mobile, gender } = req.body;
             
             if (!email || !password || !username || !mobile || typeof(gender) !== 'number') return res.status(422).json({ data: null, message: 'need to fill all inputs' });
             if (await User.findOne({ where: { email: email } })) return res.status(409).json({ data: null, message: 'email exist' });
             let newUser = await User.create({ email, password, username, mobile, gender });
-            console.log(newUser);
+
             return res.status(200).json({ data: null, message: 'signup complete' });
         } catch (err) {
             return res.status(500).json({ data: null, message: 'Internal Server Error' })
