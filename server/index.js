@@ -6,12 +6,9 @@ const app = express();
 
 const users = require('./routes/users')
 
-app.use(cors({
-    origin: 'http://localhost:3000',
-}));
+app.use(cors());
 
 app.use(express.json());
-
 app.use('/users', users);
 
 app.listen(port, () => {

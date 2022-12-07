@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>signup</h1>
+    <nav>
+        <div>
+            <button onclick="moveToHome()">Home</button>
+        </div>
+        <div>
+            <button id="login" class="auth" onclick="moveToLogin()">login</button>
+            <button id="signup" class="auth" onclick="moveToSignup()">signup</button>
+            <button id="logout" class="auth" onclick="logout()">logout</button>
+        </div>
+    </nav>
+    <div id="signupWrapper">        
+        <h1>signup</h1>
+        <form id="signupform" onsubmit="signupSubmit(event)">
+            <div>
+                <div>email:</div>
+                <input type="email" placeholder="email" name="email">
+            </div>
+            <div>
+                <div>password:</div>
+                <input type="password" placeholder="password" name="password">
+            </div>
+            <div>
+                <div>password&nbsp;check:</div>
+                <input type="password" placeholder="password check" name="passwordCheck">
+            </div>
+            <div>
+                <div>username:</div>
+                <input type="text" placeholder="username" name="username">
+            </div>
+            <div>
+                <div>mobile:</div>
+                <input type="number" placeholder="mobile, don't use - between number" name="mobile">
+            </div>
+            <div id="genderbox">
+                <div>gender:</div>
+                <select>
+                    <option value="1">남</option>
+                    <option value="0">여</option>
+                </select>
+            </div>
+            <button id="signupSubmitBtn">Submit</button>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

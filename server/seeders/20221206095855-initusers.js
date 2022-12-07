@@ -16,7 +16,7 @@ module.exports = {
       email: 'testuser1.test.com',
       username: 'testuser1',
       password: '1234',
-      mobile: '010-1234-5678',
+      mobile: '01012345678',
       gender: 0,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -24,7 +24,7 @@ module.exports = {
       email: 'testuser2.test.com',
       username: 'testuser2',
       password: '1234',
-      mobile: '010-1234-5678',
+      mobile: '01012345678',
       gender: 0,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -32,7 +32,7 @@ module.exports = {
       email: 'testuser3.test.com',
       username: 'testuser3',
       password: '1234',
-      mobile: '010-1234-5678',
+      mobile: '01012345678',
       gender: 0,
       createdAt: new Date(),
       updatedAt: new Date()

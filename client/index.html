@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>    
-    <nav>
-        <button onclick="moveToLogin()">login</button>
-        <button onclick="moveToSignup()">signup</button>
-    </nav>
-    <h1>home</h1>
 
-    <script src="script.js"></script>    
+<body>
+    <nav>
+        <div>
+            <button onclick="moveToHome()">Home</button>
+        </div>
+        <div>
+            <button id="login" class="auth" onclick="moveToLogin()">login</button>
+            <button id="signup" class="auth" onclick="moveToSignup()">signup</button>
+            <button id="logout" class="auth" onclick="logout()">logout</button>
+        </div>
+    </nav>
+    <h1 id="homeText"></h1>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
