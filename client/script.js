@@ -1,3 +1,5 @@
+const regPhone = () => /^01([0|1|6|7|8|9)([0-9]{7, 8})/;
+
 // me (로그인 상태확인)
 document.addEventListener('DOMContentLoaded', function() {
     const accessToken = localStorage.getItem('accessToken');
@@ -97,7 +99,7 @@ function signupSubmit(event) {
     const password = event.target[1].value;
     const passwordCheck = event.target[2].value;
     const username = event.target[3].value;
-    const mobile = event.target[4].value;
+    const mobile = Number(event.target[4].value);
     const gender = Number(event.target[5].value);
     console.log(gender);
     
