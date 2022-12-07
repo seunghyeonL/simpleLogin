@@ -1,5 +1,3 @@
-const regPhone = () => /^01([0|1|6|7|8|9)([0-9]{7, 8})/;
-
 // me (로그인 상태확인)
 document.addEventListener('DOMContentLoaded', function() {
     const accessToken = localStorage.getItem('accessToken');

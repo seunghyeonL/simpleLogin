@@ -52,7 +52,7 @@ module.exports = {
             delete targetUserInfo.password;            
             return res.status(200).json({ data: { userInfo: targetUserInfo, accessToken: accessToken }, message: 'ok' });
         } catch (err) {
-            return res.status(500).json({ data: null, message: 'Internal Server Error' })
+            return res.status(500).json({ data: null, message: 'Internal Server Error' });
         }
     },
     
@@ -62,11 +62,11 @@ module.exports = {
             
             if (!email || !password || !username || !mobile || typeof(gender) !== 'number') return res.status(422).json({ data: null, message: 'need to fill all inputs' });
             if (await User.findOne({ where: { email: email } })) return res.status(409).json({ data: null, message: 'email exist' });
-            let newUser = await User.create({ email, password, username, mobile, gender });
+            await User.create({ email, password, username, mobile, gender });
 
             return res.status(200).json({ data: null, message: 'signup complete' });
         } catch (err) {
-            return res.status(500).json({ data: null, message: 'Internal Server Error' })
+            return res.status(500).json({ data: null, message: 'Internal Server Error' });
         }
     }
 }
